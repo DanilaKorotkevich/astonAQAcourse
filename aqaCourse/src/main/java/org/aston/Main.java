@@ -1,52 +1,26 @@
 package org.aston;
 
+import org.aston.Lesson_2.Park;
+import org.aston.Lesson_2.Product;
+
 public class Main {
     public static void main(String[] args) {
-        /**task 1**/
-        Lesson_1.printThreeWords();
+        Product[] productSArr = new Product[5];
 
-        /**task 2**/
-        Lesson_1.checkSumSign();
+        productSArr[0] = new Product("Samsung S25 Ultra", "01.02.2025", "Samsung Corp.", "Korea", 5599, true);
+        productSArr[1] = new Product("Iphone 11", "01.09.2018", "Apple Comp.", "USA", 2800, false);
+        productSArr[2] = new Product("Samsung S24", "23.04.2023", "Samsung Corp.", "Korea", 4300, true);
+        productSArr[3] = new Product("Iphone 16 Pro Max", "01.09.2025", "Apple Comp.", "USA", 7000, false);
+        productSArr[4] = new Product("Samsung S23", "11.12.2022", "Samsung Corp.", "Korea", 1233, false);
 
-        /**task 3**/
-        Lesson_1.printColor();
-
-        /**task 4**/
-        Lesson_1.compareNumbers();
-
-        /**task 5**/
-        System.out.println(Lesson_1.isCorrectSum(11, 10));
-
-        /**task 6**/
-        Lesson_1.printNumStatus(-25);
-
-        /**task 7**/
-        System.out.println(Lesson_1.isNumFalse(12));
-
-        /**task 8**/
-        Lesson_1.printText(10, "simple text");
-
-        /**task 9**/
-        System.out.println(Lesson_1.isLeapYear(2025));
-
-        /**task 10**/
-        Lesson_1.reverseNumsInArr();
-
-        /**task 11**/
-        Lesson_1.fillArr();
-
-        /**task 12**/
-        Lesson_1.modArr();
-
-        /**task 13**/
-        Lesson_1.modTwoDimArr();
-
-        /**task 14**/
-        int[] nums = Lesson_1.printArr(5, 7);
-
-        for (int num : nums) {
-            System.out.println(num);
+        for (Product product : productSArr) {
+            System.out.println(product.print());
         }
-    }
 
+        Park park = new Park("Park");
+
+        park.addAttraction("White wings", "09:00", "17:00", 12);
+        park.addAttraction("Hot persuid", "10:00", "18:00", 15);
+        park.addAttraction("Crazy dazy", "12:00", "20:00", 10);
+    }
 }
