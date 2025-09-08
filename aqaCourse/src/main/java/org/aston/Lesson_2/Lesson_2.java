@@ -1,6 +1,6 @@
 package org.aston.Lesson_2;
 
-public class Lesson_1 {
+public class Lesson_2 {
 
     public static void printThreeWords() {
         System.out.println("Orange");
