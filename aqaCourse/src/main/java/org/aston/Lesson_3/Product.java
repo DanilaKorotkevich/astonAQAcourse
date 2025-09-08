@@ -1,4 +1,4 @@
-package org.aston.Lesson_2;
+package org.aston.Lesson_3;
 
 public class Product {
     private String name;

@@ -1,4 +1,4 @@
-package org.aston.Lesson_1;
+package org.aston.Lesson_2;
 
 public class Lesson_1 {
 
