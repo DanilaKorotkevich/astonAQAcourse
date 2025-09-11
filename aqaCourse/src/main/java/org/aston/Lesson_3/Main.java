@@ -1,7 +1,4 @@
-package org.aston;
-
-import org.aston.Lesson_3.Park;
-import org.aston.Lesson_3.Product;
+package org.aston.Lesson_3;
 
 public class Main {
     public static void main(String[] args) {
