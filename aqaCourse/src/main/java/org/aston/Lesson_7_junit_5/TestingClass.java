@@ -7,43 +7,35 @@ public class TestingClass {
         return (n <= 1) ? 1 : n * calcFactorial(n - 1);
     }
 
-    public int calcSquare(int a, int h) {
-        if (a != 0 || h != 0) {
-            if ((a * h) % 2 != 0) {
-                throw new IllegalArgumentException("Результат не может быть с остатком!");
-            } else {
-                return (a * h) / 2;
-            }
+    public double calcSquare(double a, double h) {
+        if (a > 0 && h > 0) {
+            return (a * h) / 2;
         } else {
-            System.err.println("Невалидные значения!");
+            throw new IllegalArgumentException("Невалидные значения!");
         }
-        return 0;
     }
 
     public int calculation(int a, int b, String operation) {
-        if (operation == "+" | operation == "-" | operation == "*" | operation == "/") {
+        if (operation.equals("+") || operation.equals("-") || operation.equals("*") || operation.equals("/")) {
             switch (operation) {
                 case "+": return a + b;
                 case "-": return a - b;
                 case "*": return a * b;
                 case "/": if (b == 0) {
-                    System.err.println("деление на ноль невозможно!");
-                    return 0;
+                    throw new IllegalArgumentException("Деление на ноль невозможно!");
                 } else if (a % b != 0) {
-                    System.err.println("Деление c остатком невозможно!");
-                    return 0;
+                    throw new IllegalArgumentException("Деление c остатком невозможно!");
                 } else {
                     return a / b;
                 }
             }
         } else {
-            System.err.println("Неверный ввод оператора!");
-            return 0;
+            throw new IllegalArgumentException("Неверный ввод оператора!");
         }
         return 0;
     }
 
-    public int equalsNums(int a, int b) {
+    public int equalityNums(int a, int b) {
         if (a == b) {
             return 0;
         }
