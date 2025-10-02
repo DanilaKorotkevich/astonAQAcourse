@@ -1,4 +1,5 @@
-import org.aston.Lesson_7_testng.TestingClass;
+package org.aston.Lesson_7_testng;
+
 import org.junit.jupiter.api.DisplayName;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package Lesson_8_tests;
+package org.aston.Lesson_8_tests;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;

@@ -1,6 +1,6 @@
-package Lesson_8_tests.PutRequests;
+package org.aston.Lesson_8_tests.PutRequests;
 
-import Lesson_8_tests.BaseClient;
+import org.aston.Lesson_8_tests.BaseClient;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
