@@ -1,5 +1,7 @@
-package org.aston.Lesson_9_2;
+package org.aston.Lesson_10;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,23 +41,29 @@ public class PaymentFrame extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Переключение на iframe платежной системы")
     private void switchToIframe() {
         waitForVisibility(paymentIframe);
         driver.switchTo().frame(paymentIframe);
+        Allure.step("Успешно переключились на платежный iframe");
     }
 
+    @Step("Проверка суммы платежа: ожидается {expectedAmount}")
     public void verifyAmount(String expectedAmount) {
         waitForVisibility(amountSpan);
         assertEquals(expectedAmount, amountSpan.getText());
+        Allure.step("Сумма корректна: " + amountSpan.getText());
     }
 
+    @Step("Проверка кнопки оплаты: должна содержать сумму {expectedAmount}")
     public void verifyPayButton(String expectedAmount) {
         waitForVisibility(payButton);
         String paySpan = payButton.findElement(By.tagName("span")).getText();
         assertEquals(expectedAmount, paySpan);
-        //assertTrue(payButton.getText().contains(expectedAmount));
+        Allure.step("Кнопка оплаты корректна, содержит: " + paySpan);
     }
 
+    @Step("Проверка плейсхолдеров полей карты")
     public void verifyCardFields() {
         String[] expectedFields = {"Номер карты", "Срок действия", "CVC", "Имя и фамилия на карте"};
 
@@ -69,24 +77,34 @@ public class PaymentFrame extends BasePage {
                 "/html/body/app-root/div/div/div/app-payment-container/section/div/app-card-page/div/div[1]/app-card-input/form/div[1]/div[3]/app-input/div/div/div[1]/label")).getText();
 
         assertEquals(expectedFields[0], cardNumberText);
+        Allure.step("Поле '" + expectedFields[0] + "' совпадает с" + cardNumberText);
         assertEquals(expectedFields[1], expiryDateText);
+        Allure.step("Поле '" + expectedFields[1] + "' совпадает с" + expiryDateText);
         assertEquals(expectedFields[2], cvcText);
+        Allure.step("Поле '" + expectedFields[2] + "' совпадает с" + cvcText);
         assertEquals(expectedFields[3], nameText);
+        Allure.step("Поле '" + expectedFields[3] + "' совпадает с" + nameText);
     }
 
+    @Step("Проверка иконок платежных систем")
     public void verifyPaymentSystemIcons() {
         wait.until(driver -> paymentSystemIcons.size() > 0);
         assertTrue(paymentSystemIcons.size() > 0);
+        Allure.step("Найдено иконок платежных систем: " + paymentSystemIcons.size());
     }
 
+    @Step("Проверка отображения номера телефона: {expectedPhone}")
     public void verifyPhoneNumber(String expectedText) {
         WebElement phoneDisplay = driver.findElement(
                 org.openqa.selenium.By.xpath("/html/body/app-root/div/div/div/app-payment-container/section/div/div/div[2]/span"));
         String phoneActualText = phoneDisplay.getText();
         assertEquals(expectedText, phoneActualText);
+        Allure.step("Номер телефона корректно отображается: " + phoneActualText);
     }
 
+    @Step("Возврат в основной контент страницы")
     public void switchToDefaultContent() {
         driver.switchTo().defaultContent();
+        Allure.step("Успешно вернулись в основной контент");
     }
 }

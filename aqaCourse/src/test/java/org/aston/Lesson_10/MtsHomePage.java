@@ -1,5 +1,7 @@
-package org.aston.Lesson_9_2;
+package org.aston.Lesson_10;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,20 +46,28 @@ public class MtsHomePage extends BasePage {
         super(driver);
     }
 
+    @Step("Открытие сайта")
     public void open() {
         driver.get("https://www.mts.by");
         handleCookieBanner();
+        Allure.step("Сайт открыт");
     }
 
+    @Step("Заполнение формы платежа: номер телефона = {phoneNumber}, сумма = {amount}")
     public void fillPaymentForm(String phoneNumber, String amount) {
         type(phoneField, phoneNumber);
+        Allure.step("Введен номер телефона: " + phoneNumber);
         type(amountField, amount);
+        Allure.step("Введена сумма: " + amount);
     }
 
+    @Step("Нажатие кнопки 'Продолжить'")
     public void clickContinue() {
         click(continueButton);
+        Allure.step("Кнопка 'Продолжить' успешно нажата");
     }
 
+    @Step("Переключение на платежный frame")
     public PaymentFrame switchToPaymentFrame() {
         return new PaymentFrame(driver);
     }

@@ -1,4 +1,4 @@
-package org.aston.Lesson_9_2;
+package org.aston.Lesson_10;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+//BasePage
 public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
